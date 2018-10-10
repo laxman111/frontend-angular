@@ -42,4 +42,4 @@ dist
 
 
 # other files
-package-lock
+package-lock.json
