@@ -1,12 +1,9 @@
-﻿import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AuthenticationService } from '../_services';
 import { Subscription } from 'rxjs';
 
-@Component({
-    selector: 'home-component',
-    templateUrl: 'home.component.html'
-})
-export class HomeComponent implements OnInit, OnDestroy {
+@Component({ templateUrl: 'agencyUserPortal.component.html' })
+export class AgencyUserPortalComponent implements OnInit, OnDestroy {
     private subscription: Subscription;
     loginUserInfo: any;
     isDarkTheme: boolean = false;

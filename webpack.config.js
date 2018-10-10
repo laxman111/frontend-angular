@@ -1,4 +1,5 @@
-﻿const webpack = require('webpack');
+﻿const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -7,18 +8,28 @@ module.exports = {
     rules: [
       {
         test: /\.ts$/,
-        use: ['ts-loader', 'angular2-template-loader'],
+        use: ['ts-loader', 'angular2-template-loader', 'angular-router-loader'],
         exclude: /node_modules/
       },
       {
         test: /\.(html|css)$/,
         loader: 'raw-loader'
       },
+      {
+        test: /\.scss$/,
+        use: [
+          "style-loader",
+          "css-loader",
+          "sass-loader",
+        ],
+        include: path.resolve(__dirname, './src/')
+      },
     ]
   },
   resolve: {
     extensions: ['.ts', '.js']
   },
+  devtool: 'inline-source-map',
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',

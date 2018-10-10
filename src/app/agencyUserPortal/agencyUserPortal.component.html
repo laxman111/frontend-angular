@@ -1,0 +1,9 @@
+
+<!-- side bar menus -->
+<app-sidebar [loginUserInfo]="loginUserInfo" ></app-sidebar>
+<!-- application header -->
+  <app-header [loginUserInfo]="loginUserInfo" ></app-header>
+    <!-- the main data content -->
+    <div class="app-content">
+        <router-outlet></router-outlet>
+    </div>

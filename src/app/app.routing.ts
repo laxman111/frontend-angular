@@ -1,12 +1,21 @@
 ﻿import { Routes, RouterModule } from '@angular/router';
 
-import { HomeComponent } from './home';
 import { LoginComponent } from './login';
 import { RegisterComponent } from './register';
 import { AuthGuard } from './_guards';
+import { AgencyUserPortalComponent } from './agencyUserPortal/agencyUserPortal.component'
 
 const appRoutes: Routes = [
-    { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+   { path: '',
+    component: AgencyUserPortalComponent,
+    canActivate: [AuthGuard],
+    children: [
+            {
+                path: '',
+                loadChildren: './agencyUserPortal/agencyUserPortal.module#AgencyUserPortalModule',
+            }
+        ]
+    },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
 
